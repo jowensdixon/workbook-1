@@ -13,15 +13,26 @@ public class SandwichShop {
         System.out.print("Enter 1 or 2: ");
         int size = scanner.nextInt();
 
+        float basePrice = 0.0f;
+        float loadedPrice = 0.0f;
+
         //  base price
-        float basePrice;
         if (size == 1) {
             basePrice = 5.45f;
+            loadedPrice = 1.00f;
         } else if (size == 2) {
             basePrice = 8.95f;
+            loadedPrice =1.75f;
         } else {
             System.out.println("Invalid size selected.");
             return;
+        }
+        System.out.print("Would you like the sandwich loaded? (yes/no): ");
+        scanner.nextLine();
+        String loaded = scanner.nextLine().trim().toLowerCase();
+
+        if (loaded.equals("yes")) {
+            basePrice += loadedPrice;
         }
 
         // Prompt for age
